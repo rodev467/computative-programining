@@ -304,3 +304,202 @@ int main() {
 
 
 
+1) How Much is True?
+Create a function which returns the number of true values there are in an array.
+
+
+#include <stdio.h>
+#include <stdbool.h>
+
+int countTrue(bool arr[], int size) {
+    int count = 0;
+    for (int i = 0; i < size; i++) {
+        if (arr[i] == true) {
+            count++;
+        }
+    }
+    return count;
+}
+
+int main() {
+    bool arr[] = {true, false, true, true, false, true};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int trueCount = countTrue(arr, size);
+    printf("Number of true values: %d\n", trueCount);
+    return 0;
+}
+
+
+
+
+
+Get Word Count
+Create a method that takes a string and returns the word count. The string will be a sentence.
+
+
+
+#include <stdio.h>
+
+int countWords(char *str) {
+    int count = 0;
+    int isWord = 0;
+
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] == ' ' || str[i] == '\n' || str[i] == '\t') {
+            isWord = 0;
+        } else if (isWord == 0) {
+            isWord = 1;
+            count++;
+        }
+    }
+
+    return count;
+}
+
+int main() {
+    char str[] = "This is a sample sentence.";
+    int wordCount = countWords(str);
+    printf("Number of words: %d\n", wordCount);
+    return 0;
+}
+
+
+
+
+Check if String Ending Matches Second String
+Create a function that takes two strings and returns true if the first string ends with the second
+string; otherwise return false.
+
+
+#include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
+
+bool endsWith(const char *str, const char *ending) {
+    int strLen = strlen(str);
+    int endingLen = strlen(ending);
+
+    if (endingLen > strLen) {
+        return false;
+    }
+
+    const char *strEnding = str + (strLen - endingLen);
+    return strcmp(strEnding, ending) == 0;
+}
+
+int main() {
+    const char *str1 = "Hello World";
+    const char *str2 = "World";
+    bool result = endsWith(str1, str2);
+    printf("String ending matches: %s\n", result ? "true" : "false");
+    return 0;
+}
+
+
+
+
+Basic Calculator
+Create a function that takes two numbers and a mathematical operator + - / * and will perform a
+calculation with the given numbers.
+
+
+
+#include <stdio.h>
+
+double calculate(double num1, double num2, char operator) {
+    double result;
+
+    switch (operator) {
+        case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;
+        case '*':
+            result = num1 * num2;
+            break;
+        case '/':
+            if (num2 != 0) {
+                result = num1 / num2;
+            } else {
+                printf("Error: Division by zero is not allowed.\n");
+                return 0;
+            }
+            break;
+        default:
+            printf("Error: Invalid operator.\n");
+            return 0;
+    }
+
+    return result;
+}
+
+int main() {
+    double num1 = 10.0;
+    double num2 = 5.0;
+    char operator = '+';
+    double result = calculate(num1, num2, operator);
+    printf("Result: %.2lf\n", result);
+    return 0;
+}
+
+
+
+
+Many Operators!
+Some basic arithmetic operators are +, -, *, /, and %. In this challenge you will be given three
+parameters, num1, num2, and an operator. Use the operator on parameters num1 and num2.
+
+
+
+#include <stdio.h>
+
+double calculate(double num1, double num2, char operator) {
+    double result;
+
+    switch (operator) {
+        case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;
+        case '*':
+            result = num1 * num2;
+            break;
+        case '/':
+            if (num2 != 0) {
+                result = num1 / num2;
+            } else {
+                printf("Error: Division by zero is not allowed.\n");
+                return 0;
+            }
+            break;
+        case '%':
+            if (num2 != 0) {
+                result = (int) num1 % (int) num2;
+            } else {
+                printf("Error: Modulus by zero is not allowed.\n");
+                return 0;
+            }
+            break;
+        default:
+            printf("Error: Invalid operator.\n");
+            return 0;
+    }
+
+    return result;
+}
+
+int main() {
+    double num1 = 10.0;
+    double num2 = 5.0;
+    char operator = '+';
+    double result = calculate(num1, num2, operator);
+    printf("Result: %.2lf\n", result);
+    return 0;
+}
+
+
+
