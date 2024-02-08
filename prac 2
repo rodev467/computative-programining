@@ -1,0 +1,306 @@
+1)Return the Sum of Two Numbers
+Create a function that takes two numbers as arguments and returns their sum.
+
+
+#include <stdio.h>
+
+int Sum(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    printf("%d\n", Sum(3, 2));    
+    printf("%d\n", Sum(-3, -6));  
+    printf("%d\n", Sum(7, 3));    
+
+    return 0;
+}
+
+#include <stdio.h>
+
+int Addition(int num) {
+    return num + 1;
+}
+
+int main() {
+    printf("%d\n", Addition(0)); 
+    printf("%d\n", Addition(9));  
+    printf("%d\n", Addition(-3)); 
+
+    return 0;
+}
+
+
+
+
+Convert Minutes into Seconds
+Write a function that takes an integer minutes and converts it to seconds.
+
+#include <stdio.h>
+
+int ConvertToSeconds(int minutes) {
+    return minutes * 60;
+}
+
+int main() {
+    printf("%d\n", ConvertToSeconds(5));  
+    printf("%d\n", ConvertToSeconds(2));  
+    printf("%d\n", ConvertToSeconds(10)); 
+
+    return 0;
+}
+
+
+
+Odd Up, Even Down — N Times
+Create a function that performs an even-odd transform to an array, n times. Each even-odd
+transformation:
+
+
+
+#include <stdio.h>
+
+void evenOddTransform(int arr[], int length, int n) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < length; j++) {
+            if (arr[j] % 2 == 0) {
+                arr[j] -= 1;
+            } else {
+                arr[j] += 1;
+            }
+        }
+    }
+}
+
+int main() {
+    int arr[] = {2, 4, 6, 8, 10};
+    int length = sizeof(arr) / sizeof(arr[0]);
+    int n = 3;
+
+    evenOddTransform(arr, length, n);
+
+    printf("Transformed array: ");
+    for (int i = 0; i < length; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+
+
+
+
+Convert Age to Days
+Create a function that takes the age in years and returns the age in days.
+#include <stdio.h>
+
+int CalcAge(int ageInYears) {
+    return ageInYears * 365;
+}
+
+int main() {
+    printf("%d\n", CalcAge(65)); 
+    printf("%d\n", CalcAge(0));  
+    printf("%d\n", CalcAge(20)); 
+
+    return 0;
+}
+
+
+
+
+
+Circuit Power Calculator
+Create a function that takes voltage and current and returns the calculated power.
+
+
+#include <stdio.h>
+
+float CircuitPower(float voltage, float current) {
+    float power = voltage * current;
+    return power;
+}
+
+int main() {
+    float voltage = 230;
+    float current = 10;
+    float power = CircuitPower(voltage, current);
+    printf("The calculated power is: %.2f\n", power);
+    return 0;
+}
+
+
+
+
+
+Is the Number Less than or Equal to Zero?
+Create a function that takes a number as its only argument and returns true if it&#39;s less than or equal
+to zero, otherwise return false.
+
+
+#include <stdbool.h>
+
+bool lessThanOrEqualToZero(float number) {
+    if (number <= 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+int main() {
+    float number1 = 5;
+    float number2 = 0;
+    float number3 = -2;
+
+    printf("%d\n", lessThanOrEqualToZero(number1)); 
+    printf("%d\n", lessThanOrEqualToZero(number2));  
+    printf("%d\n", lessThanOrEqualToZero(number3));  
+    return 0;
+}
+
+
+
+
+
+How Many Solutions Does This Quadratic Have?
+A quadratic equation a x² + b x + c = 0 has either 0, 1, or 2 distinct solutions for real values of x. Given
+a, b and c, you should return the number of solutions to the equation.
+
+#include <stdio.h>
+
+int numberOfSolutions(float a, float b, float c) {
+    float discriminant = b * b - 4 * a * c;
+
+    if (discriminant > 0) {
+        return 2;
+    } else if (discriminant == 0) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+int main() {
+    float a = 1;
+    float b = -4;
+    float c = 4;
+
+    int solutions = numberOfSolutions(a, b, c);
+    printf("The quadratic equation has %d solution(s).\n", solutions);
+
+    return 0;
+}
+
+
+
+
+Array of Multiples
+Create a function that takes two numbers as arguments (num, length) and returns an array of
+multiples of num until the array length reaches length.
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int* arrayOfMultiples(int num, int length) {
+    int* multiples = (int*)malloc(length * sizeof(int));
+
+    for (int i = 0; i < length; i++) {
+        multiples[i] = num * (i + 1);
+    }
+
+    return multiples;
+}
+
+int main() {
+    int num = 7;
+    int length = 5;
+
+    int* result = arrayOfMultiples(num, length);
+
+    printf("Array of multiples: ");
+    for (int i = 0; i < length; i++) {
+        printf("%d ", result[i]);
+    }
+    printf("\n");
+
+    free(result);
+
+    return 0;
+}
+
+
+
+Sum of Odd and Even Numbers
+Write a function that takes an array of numbers and returns an array with two elements:
+
+
+
+#include <stdio.h>
+
+void sumOfEvenAndOdd(int arr[], int length, int* evenSum, int* oddSum) {
+    *evenSum = 0;
+    *oddSum = 0;
+
+    for (int i = 0; i < length; i++) {
+        if (arr[i] % 2 == 0) {
+            *evenSum += arr[i];
+        } else {
+            *oddSum += arr[i];
+        }
+    }
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5, 6};
+    int length = sizeof(arr) / sizeof(arr[0]);
+    int evenSum, oddSum;
+
+    sumOfEvenAndOdd(arr, length, &evenSum, &oddSum);
+
+    printf("Sum of even numbers: %d\n", evenSum);
+    printf("Sum of odd numbers: %d\n", oddSum);
+
+    return 0;
+}
+
+
+
+Even or Odd: Which is Greater?
+Create a function to determine if the sum of all the individual even digits are greater than the sum of
+all the individual odd digits in a string of numbers.
+
+
+#include <stdio.h>
+
+int even_vs_odd(char* string) {
+    int even_sum = 0;
+    int odd_sum = 0;
+
+    for (int i = 0; string[i] != '\0'; i++) {
+        if (string[i] >= '0' && string[i] <= '9') {
+            int num = string[i] - '0';
+            if (num % 2 == 0) {
+                even_sum += num;
+            } else {
+                odd_sum += num;
+            }
+        }
+    }
+
+    return even_sum > odd_sum;
+}
+
+int main() {
+    printf("%d\n", even_vs_odd("123456"));  // Output: 1 (True)
+    printf("%d\n", even_vs_odd("987654"));  // Output: 0 (False)
+    printf("%d\n", even_vs_odd("13579"));   // Output: 0 (False)
+
+    return 0;
+}
+
+
+
